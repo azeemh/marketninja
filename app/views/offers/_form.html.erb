@@ -1,0 +1,68 @@
+<%= form_with(model: offer, local: true) do |form| %>
+  <% if offer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
+
+      <ul>
+      <% offer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :product_name %>
+    <%= form.text_field :product_name, id: :offer_product_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :platform %>
+    <%= form.text_field :platform, id: :offer_platform %>
+  </div>
+
+  <div class="field">
+    <%= form.label :virability %>
+    <%= form.text_field :virability, id: :offer_virability %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_ad_posted %>
+    <%= form.date_select :date_ad_posted, id: :offer_date_ad_posted %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :offer_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_details %>
+    <%= form.text_area :product_details, id: :offer_product_details %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link %>
+    <%= form.text_field :link, id: :offer_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :keywords %>
+    <%= form.text_field :keywords, id: :offer_keywords %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_link %>
+    <%= form.text_field :video_link, id: :offer_video_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+   
+    <%= form.collection_select(:category_id, Category.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

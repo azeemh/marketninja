@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Market Ninja</title>
+  <%=csrf_meta_tags %>
+  <%=stylesheet_link_tag 'application', media: 'all' %>
+  <%=javascript_include_tag 'application' %>
+  <%=favicon_link_tag 'favicon.ico'%>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.css">
+</head>
+
+<body>
+  <div class="mainContainer">
+    <section class="navigation">
+      <div class="nav-container">
+        <div class="brand"><a href="/"><%=image_tag( "logo.png", class: "imglogo") %> Market Ninja</a><!-- need logo image file @ assets/images/logo.png--></div>
+        <nav>
+          <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+          <ul>
+            <li><a class="css_class_for_fontName" id="homeLink" href="/">Home</a></li>
+            <% if user_signed_in? %>
+              <li><a class="css_class_for_fontName" href="/categories">Category</a></li>
+              <li><a class="css_class_for_fontName" href="/offers">Offer</a></li>
+              <li><a class="css_class_for_fontName" href="/suppliers">Supplier</a></li>
+              <li><a class="css_class_for_fontName" href="<%= edit_user_registration_path %>"><% if !current_user.username == '' %><%= current_user.username %><% else %><%= current_user.email %></a><% end %></li>
+              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, :class=> "css_class_for_fontName" %></li>
+            <% else %>
+              <li><%= link_to "Log In", new_user_session_path, :class=> "css_class_for_fontName" %></li>
+            <% end %>
+              <li style="text-align: center;"><a class="css_class_for_fontName" id="closeLink" href="#" style="font-height: 2em; font-weight: 900;">×</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+      function myFunction() {
+        var x = document.getElementById('navbar');
+        if (x.style.display === 'none') {
+          x.style.display = 'block';
+        } else {
+          x.style.display = 'none';
+        }
+        var y = document.getElementById('mobile');
+        if (y.style.display === 'inline') {
+          y.style.display = 'none';
+        } else {
+          y.style.display = 'inline';
+        }
+      }
+
+      (function($) { // Begin jQuery
+        $(function() { // DOM ready
+          // If a link has a dropdown, add sub menu toggle.
+          $(window).resize(function() {
+            if ($(window).width() > 800) {
+              $('nav ul').show();
+              $('#homeLink').hide();
+              $('#closeLink').hide();
+            } else {
+              $('#homeLink').show();
+              $('#closeLink').show();
+            }
+          });
+          $('#homeLink').hide();
+          $('#closeLink').hide();
+
+          $('nav ul li a:not(:only-child)').click(function(e) {
+            $(this).siblings('.nav-dropdown').toggle();
+            // Close one dropdown when selecting another
+            $('.nav-dropdown').not($(this).siblings()).hide();
+            e.stopPropagation();
+          });
+          // Clicking the 'close' button from dropdown will remove the dropdown class
+          $('#closeLink').click(function() {
+            $('nav ul').hide();
+          });
+          // Toggle open and close nav styles on click
+          $('#nav-toggle').click(function() {
+            $('nav ul').slideToggle();
+          });
+          // Hamburger to X toggle
+          $('#nav-toggle').on('click', function() {
+            $('#homeLink').show();
+            $('#closeLink').show();
+            this.classList.toggle('active');
+          });
+        }); // end DOM ready
+      })(jQuery); // end jQuery
+    </script>
+    <section>
+      <% if !notice.nil? %>
+      <div class="notice"><%= notice %></div>
+      <% end %>
+      <% if !alert.nil? %>
+      <div class="alert"><%= alert %></div><% end %>
+    </section>
+    <div id="yieldContainer">
+      <%= yield %>
+    </div>
+  </div>
+</body>
+
+<footer class="css_class_for_fontName">
+  <div class="columns">
+    <div class="column footerText">
+      <h2 class="headline">This should be your appname like Market Ninja or something actually useful like maybe a row of social media icons and links etc</h2>
+    </div>
+    <div class="column footerText">
+      <h4>© <%= Date.today.year %> yourcompanyname</h4>
+    </div>
+    <div class="column footerText">
+      <h4>Contact us at <a href="mailto:adefaultemail@awebsite.com">dude@chillworkspace.com</a></h4>
+    </div>
+  </div>
+</footer>
+
+</html>

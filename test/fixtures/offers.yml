@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_name: MyString
+  platform: MyString
+  virability: 9.99
+  date_ad_posted: 2017-08-24
+  price: 9.99
+  product_details: MyText
+  link: MyString
+  keywords: MyString
+  video_link: MyString
+  category: one
+
+two:
+  product_name: MyString
+  platform: MyString
+  virability: 9.99
+  date_ad_posted: 2017-08-24
+  price: 9.99
+  product_details: MyText
+  link: MyString
+  keywords: MyString
+  video_link: MyString
+  category: two

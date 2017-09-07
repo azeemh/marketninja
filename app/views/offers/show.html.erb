@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product name:</strong>
+  <%= @offer.product_name %>
+</p>
+
+<p>
+  <strong>Platform:</strong>
+  <%= @offer.platform %>
+</p>
+
+<p>
+  <strong>Virability:</strong>
+  <%= @offer.virability %>
+</p>
+
+<p>
+  <strong>Date ad posted:</strong>
+  <%= @offer.date_ad_posted %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @offer.price %>
+</p>
+
+<p>
+  <strong>Product details:</strong>
+  <%= @offer.product_details %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @offer.link %>
+</p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @offer.keywords %>
+</p>
+
+<p>
+  <strong>Video link:</strong>
+  <%= @offer.video_link %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= Category.find(@offer.category_id).name %>
+</p>
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>

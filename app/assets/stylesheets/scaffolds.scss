@@ -1,0 +1,79 @@
+body {
+  background-color: #fff;
+  color: #333;
+  /*font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;*/
+  /*line-height: 18px;*/
+}
+p, ol, ul, td {
+  /*font-family: verdana, arial, helvetica, sans-serif;*/
+  /*font-size: 13px;*/
+  line-height: 18px;
+}
+pre {
+  background-color: #eee;
+  padding: 10px;
+  /*font-size: 11px;*/
+}
+th {
+  padding-bottom: 5px;
+}
+td {
+  padding: 0 5px 7px;
+}
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+#notice {
+  color: green;
+}
+.field_with_errors {
+  background-color: crimson;
+  text-align: center;
+  color: white;
+}
+#error_explanation {
+  width: 98.5%;
+  border: 2px solid crimson;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: crimson;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+label {
+  //display: inline-block;
+}
+form {
+  width: 95%;
+  padding-left: 2.5%;
+}
+.field {
+  width: 100%;
+  textarea {
+    width: 100%;
+    min-height: 200px;
+    border-radius: 3px;
+    border: 1px dotted black;
+  }
+  input {
+    width: 100%;
+    min-height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+  }
+}

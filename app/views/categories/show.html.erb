@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<div class="">
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>platform</th>
+      <th>link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @category.suppliers.each do |supplier| %>
+      <tr>
+        <td><%= supplier.name %></td>
+        <td><%= supplier.platform %></td>
+        <td><%= supplier.link %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
