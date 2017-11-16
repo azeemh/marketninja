@@ -1,4 +1,8 @@
-Bash Script To Generate This Application
+To get started, make sure you have rails 5+ ruby 2.4+ postgres 9.6+
+
+`git clone https://github.com/azeemh/marketninja/`, `cd market-ninja-rails-server`, `rails db:setup`, then `rails s`
+
+Bash Script To Generate Application Barebones: 
 
 ```
 #!/bin/bash
